@@ -9,9 +9,9 @@ public class Menu {
         this.menuList.add(dish);
     }
 
-    public Dish findDish(String dish){
+    public Dish findDish(String dishName){
         for(Dish item: menuList){
-            if(item.getName().equalsIgnoreCase(dish)){
+            if(item.getName().equalsIgnoreCase(dishName)){
                 return item;
             }
         }
@@ -23,3 +23,4 @@ public class Menu {
         }
     }
 }
+

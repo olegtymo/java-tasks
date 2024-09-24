@@ -14,7 +14,7 @@ public class OrderService {
         Scanner sc = new Scanner(System.in);
         String clientOrder;
 
-        System.out.println("Would you like to make an order? (yer/no)");
+        System.out.println("Would you like to make an order? (yes/no)");
         clientConfirmation = sc.nextLine();
 
         if (clientConfirmation.equalsIgnoreCase("yes")) {
@@ -30,11 +30,24 @@ public class OrderService {
                 if (orderedDish != null) {
                     clientOrderedList.add(orderedDish);
                     System.out.println(orderedDish.getName() + " has been added to your order");
+
+                    System.out.println("Add one more or press ENTER");
+                    clientOrder = sc.nextLine();
+
+                    if (clientOrder != null ) {
+                        do {
+                            System.out.println("Add one more or press ENTER");
+                            clientOrder = sc.nextLine();
+                            clientOrderedList.add(orderedDish);
+                            System.out.println(orderedDish.getName() + " has been added to your order");
+                        } while (clientOrder != null);
+                    } else {
+                        System.out.println("Unfortunately we don`t have this kind of meal");
+                    }
+
                 } else {
                     System.out.println("Unfortunately we do not have this Dish");
                 }
-                System.out.println("Would you like to add another dish to your order? (yer/no)");
-                clientConfirmation = sc.nextLine();
             } while (clientConfirmation.equalsIgnoreCase("yes"));
         }
 
